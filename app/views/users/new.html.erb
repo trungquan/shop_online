@@ -1,0 +1,13 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+<h2>Welcome to My Project</h2>
+<h4>Register</h4>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |ff| %>
+    	<%= render 'shared/error_messages', object: ff.object %>
+		<%= render 'fields', f: ff %>
+      <%= ff.submit "Create my account", class: "btn btn-large btn-success" %>
+    <% end %>
+  </div>
+</div>
