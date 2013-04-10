@@ -1,8 +1,10 @@
 <% provide(:title, 'All categories') %>
 <h1>All categories</h1>
 
-<ol style="font-size:18px">
+<table class="table" style="font-size:18px">
   	<%= render @categories %>
-</ol>
+</table>
 </br>
-<%= link_to "Create new category", new_category_path , class: "btn btn-large btn-primary" %>
+<% if current_user.admin? %>
+	<%= link_to "Create new category", new_category_path , class: "btn btn-large btn-primary" %>
+<% end %>

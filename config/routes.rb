@@ -2,8 +2,11 @@ ShopOnline::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
-  resources :categories
-  resources :products
+  resources :categories do
+    member do
+      resources :products
+    end
+  end
 
   root to: 'static_pages#home'
   
@@ -12,6 +15,8 @@ ShopOnline::Application.routes.draw do
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/allproducts', to: 'products#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
