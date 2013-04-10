@@ -1,0 +1,8 @@
+<% provide(:title, 'All categories') %>
+<h1>All categories</h1>
+
+<ol style="font-size:18px">
+  	<%= render @categories %>
+</ol>
+</br>
+<%= link_to "Create new category", new_category_path , class: "btn btn-large btn-primary" %>

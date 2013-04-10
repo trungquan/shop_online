@@ -1,8 +1,10 @@
 ShopOnline::Application.routes.draw do
 
-  
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :categories
+  resources :products
+
   root to: 'static_pages#home'
   
   match '/signup', to: 'users#new'

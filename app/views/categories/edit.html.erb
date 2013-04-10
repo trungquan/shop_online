@@ -1,0 +1,13 @@
+<% provide(:title, 'Edit category') %>
+<h1> Edit category</h1>
+<h2>Welcome to My Project</h2>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@category) do |ff| %>
+    	<%= render 'shared/error_messages', object: ff.object %>
+		<%= ff.label :name %>
+		<%= ff.text_field :name %>
+      <%= ff.submit "Save change", class: "btn btn-large btn-success" %>
+    <% end %>
+  </div>
+</div>
