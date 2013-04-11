@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :items
 
-  # NUMBERS = /\A+[0-9]+\z/
+
   validates :name, presence: true
-  validates :price, numericality: { greater_than_or_equal: 0}
+  validates :price, presence: true #, numericality: { greater_than_or_equal: 1000}
 end
