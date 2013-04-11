@@ -1,6 +1,6 @@
 ShopOnline::Application.routes.draw do
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :add_to_cart, :my_cart] 
   resources :users
   resources :categories
   resources :products do
@@ -18,6 +18,8 @@ ShopOnline::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/allproducts', to: 'products#index'
+  match '/add_to_cart', to: 'sessions#add_to_cart', via: :post
+  match '/my_cart', to: 'sessions#my_cart'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

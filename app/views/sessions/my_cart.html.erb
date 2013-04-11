@@ -1,0 +1,25 @@
+<h1>My cart</h1>
+<% if session[:cart].nil? %>
+<h4>Ban chua chon mua san pham nao</h4>
+<% else %>
+	<table class="table table-striped" style="font-size:18px">
+		<thead>
+		<tr>
+			<th > Product </th>
+			<th > Description </th>
+			<th > Quantity </th>
+			<th> Price </th>
+		</tr>
+		</thead>
+		<tbody>
+			<% session[:cart].each do |k,v| %>
+				<tr>
+	 				<td><%= link_to Product.find(k).name, Product.find(k) %></td>
+	 				<td><%= Product.find(k).description %></td>
+	 				<td><%= v %></td>
+	 				<td><%= Product.find(k).price * v %> VND</td>
+	 			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

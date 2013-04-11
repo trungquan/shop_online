@@ -4,3 +4,11 @@ Description:
 <p class="product"><%= @product.description%></p>
 Price:
 <p class="product"><%= @product.price%> VND</p>
+<% session[:product_id] = @product.id %>
+<%= form_tag('/add_to_cart') do %>
+
+    <%= label :session, :quantity %>
+    <%= text_field_tag 'session[quantity]' %>
+
+    <%= submit_tag "Add to Cart", class: "btn btn-large btn-primary" %>
+<% end %>

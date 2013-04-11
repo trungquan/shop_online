@@ -1,9 +1,10 @@
 class Product < ActiveRecord::Base
   attr_accessible :description, :name, :price, :category_id
 
-  belongs_to :categories
+  belongs_to :category
+  has_many :items
 
-  NUMBERS = /\A+[0-9]+\z/
+  # NUMBERS = /\A+[0-9]+\z/
   validates :name, presence: true
-  validates :price, presence: true, format: { with: NUMBERS }
+  validates :price, numericality: { greater_than_or_equal: 0}
 end
