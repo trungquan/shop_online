@@ -1,3 +1,11 @@
 <tr>
-  <td width="80%"><%= link_to product.name, product %></td>
+  <td><%= link_to product.name, product_path(product.id) %></br>
+  	Price: <%= product.price %> VND
+  </td>
+  <td> <%= product.description%> </td>
+  <% if signed_in? && current_user.admin? %>
+    	<td width="10%" ><%= link_to "Edit", edit_product_path(product) %></td>
+  		<td width="10%" ><%= link_to "Delete", product, method: :delete, 
+  												data: { confirm: "Are you sure" } %> </td>
+  <% end %>
 </tr>

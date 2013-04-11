@@ -2,9 +2,10 @@ ShopOnline::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
-  resources :categories do
+  resources :categories
+  resources :products do
     member do
-      resources :products
+      get :find_category
     end
   end
 

@@ -1,8 +1,16 @@
 <% provide(:title, @category.name) %>
 <h1><%= @category.name %></h1>
-<table class="table" style="font-size:16px">
-  	<%= render @products %>
+<table class="table table-striped" style="font-size:18px">
+	<thead>
+	<tr>
+		<th width="30%" > Product </th>
+		<th width="50%" > Description </th>
+	</tr>
+	</thead>
+	<tbody>
+  		<%= render @products %>
+  	</tbody>
 </table>
-<% if current_user.admin? %>
-	<%= link_to "Create new product", new_product_path , class: "btn btn-primary" %>
+<% if signed_in? && current_user.admin? %>
+	<%= link_to "Create new product", new_product_path, class: "btn btn-primary" %>
 <% end %>

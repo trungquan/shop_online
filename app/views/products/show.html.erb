@@ -1,5 +1,6 @@
 <% provide(:title, @product.name) %>
 <h3><%= @product.name %></h3>
-<p><%= @product.description%></p>
-</br>
-<p><%= @product.price%></p>
+Description:
+<p class="product"><%= @product.description%></p>
+Price:
+<p class="product"><%= @product.price%> VND</p>

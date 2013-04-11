@@ -54,6 +54,10 @@ h2 {
   color: $grayLight;
 }
 
+h3{
+  font-size: 2.5em;  
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -240,4 +244,12 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.product {
+  font-size: 20px;  
+}
+
+.select_box {
+  height: 40px;
 }
