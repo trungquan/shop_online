@@ -4,9 +4,9 @@ gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'pry'
-gem 'faker', '1.0.1'
-gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
+# gem 'faker', '1.0.1'
+# gem 'will_paginate', '3.0.3'
+# gem 'bootstrap-will_paginate', '0.0.6'
 
 group :development, :test do
   gem 'sqlite3','1.3.5'
@@ -29,5 +29,5 @@ gem 'jquery-rails','2.0.2'
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'
+  # gem 'factory_girl_rails', '4.1.0'
 end
