@@ -1,16 +1,11 @@
-<% session[:product_id] = product.id %>
 <tr>
   <td><%= link_to product.name, product_path(product.id) %></br>
   	Price: <%= product.price %> VND
   </td>
   <td> <%= product.description%> </td>
-	<td><div class="row">
-			<div class="span3">
-				<%= form_tag('/add_to_cart') do %>
-			    	<%= submit_tag "Add to Cart", class: "btn btn-large btn-primary" %>
-				<% end %>
-			</div>
-		</div>
+
+	<td><%= link_to "Add to cart", add_to_cart_path(product.id), method: :post, 
+              class: "btn btn-large btn-primary" %>
 	</td>
   <% if signed_in? && current_user.admin? %>
     	<td width="10%" ><%= link_to "Edit", edit_product_path(product) %></td>

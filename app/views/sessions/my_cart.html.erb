@@ -1,12 +1,25 @@
 <head>
 	<script>
-		function myFunction(id){
+		function myFunction(id,v){
 			var id_price = "price_"+id.toString();
 			var q = document.getElementById(id).value;
 			var price = document.getElementById(id_price).innerHTML;
 			var sum = document.getElementById("total").innerHTML;
-			q = parseInt(price);
-			
+			v = parseInt(v);
+			q = parseInt(q);
+			price = parseInt(price);
+			sum = parseInt(sum);
+			if (q < v) {
+				sum -= (v-q)*price;
+			}
+			else {
+				sum += (q-v)*price;
+			}
+			sum.toString();
+			document.getElementById("total").innerHTML = sum+' VND';
+
+
+			// debugger;
 		}
 	</script>
 </head>
@@ -33,7 +46,7 @@
 				<tr>
 	 				<td><%= link_to Product.find(k).name, Product.find(k) %></td>
 	 				<td><%= Product.find(k).description %></td>
-	 				<td><input id=<%= k %> min="1" name="session[quantity]" onblur="myFunction(<%= k %>)" type="number" value=<%= v %>></td>
+	 				<td><input id=<%= k %> min="1" name="session[quantity]" onblur="myFunction(<%= k %>,<%= v %>)" type="number" value=<%= v %>></td>
 	 				<td id="price_<%= k %>" ><%= Product.find(k).price %></td>
 	 				<td><%= link_to "Remove from Cart", remove_from_cart_path(k) %></td>
 	 				<% sum += Product.find(k).price * v %>
@@ -42,8 +55,8 @@
 			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td id="total" style="font-weight:bold;"> Total: </td>
-				<td><%= sum %> VND</td>
+				<td style="font-weight:bold;"> Total: </td>
+				<td id="total"><%= sum %> VND</td>
 				<td><%= link_to "Submit My Cart", submit_path, method: :post, class: "btn btn-large btn-success" %></td>
 			</tr>
 		</tbody>

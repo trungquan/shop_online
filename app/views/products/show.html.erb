@@ -4,13 +4,6 @@ Description:
 <p class="product"><%= @product.description%></p>
 Price:
 <p class="product"><%= @product.price%> VND</p>
-<% session[:product_id] = @product.id %>
 
-<div class="row">
-	<div class="span3">
-		<%= form_tag('/add_to_cart') do %>
-
-		    <%= submit_tag "Add to Cart", class: "btn btn-large btn-primary" %>
-		<% end %>
-	</div>
-</div>
+<%= link_to "Add to cart", add_to_cart_path(@product.id), method: :post, 
+							class: "btn btn-large btn-primary" %>

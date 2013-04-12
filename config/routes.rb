@@ -21,7 +21,7 @@ ShopOnline::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/allproducts', to: 'products#index'
-  match '/add_to_cart', to: 'sessions#add_to_cart', via: :post
+  match '/add_to_cart/:product_id', as: 'add_to_cart', to: 'sessions#add_to_cart', via: :post
   match '/remove_from_cart/:product_id', as: "remove_from_cart", 
                             to: 'sessions#remove_from_cart', via: :get
   match '/my_cart', to: 'sessions#my_cart'

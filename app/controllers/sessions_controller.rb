@@ -24,11 +24,12 @@ before_filter :signed_in_user, only: [:add_to_cart, :my_cart,
   end
 
   def add_to_cart
+
     if session[:cart]
-      session[:cart].merge!( { session[:product_id].to_i => 1 } ) { |key, v1, v2| v1+v2 }
+      session[:cart].merge!( { params[:product_id].to_i => 1 } ) { |key, v1, v2| v1+v2 }
     else
       session[:cart] = Hash.new
-      session[:cart] = { session[:product_id].to_i => 1 }
+      session[:cart] = { params[:product_id].to_i => 1 }
     end
       redirect_to my_cart_path
   end
