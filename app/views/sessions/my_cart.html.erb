@@ -1,3 +1,4 @@
+<% provide(:title, 'My cart') %>
 <h1>My cart</h1>
 <% if session[:cart].nil? %>
 <h4>Ban chua chon mua san pham nao</h4>
@@ -9,7 +10,8 @@
 			<th width="40%"> Description </th>
 			<th width="10%"> Quantity </th>
 			<th width="15%"> Price </th>
-			<th width="20%"> &nbsp; </th>
+			<th width="20%"><%= link_to "Reset My Cart", emty_cart_path, 
+				class: "btn btn-large btn-danger", data: { confirm: "Are you sure" } %></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -29,7 +31,7 @@
 				<td>&nbsp;</td>
 				<td style="font-weight:bold;"> Total: </td>
 				<td><%= sum %> VND</td>
-				<td>&nbsp;</td>
+				<td><%= link_to "Submit My Cart", submit_path, method: :post, class: "btn btn-large btn-success" %></td>
 			</tr>
 		</tbody>
 	</table>

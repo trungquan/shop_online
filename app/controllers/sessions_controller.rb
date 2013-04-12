@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 before_filter :not_signed_in, only: :new
-before_filter :signed_in_user, only: [:add_to_cart, :my_cart, :remove_from_cart]
+before_filter :signed_in_user, only: [:add_to_cart, :my_cart, 
+                :remove_from_cart, :emty_cart]
 
   def new
   end
@@ -37,6 +38,11 @@ before_filter :signed_in_user, only: [:add_to_cart, :my_cart, :remove_from_cart]
     if session[:cart].length == 0
       reset_session
     end
+    redirect_to my_cart_path
+  end
+
+  def emty_cart
+    reset_session
     redirect_to my_cart_path
   end
 

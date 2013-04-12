@@ -1,0 +1,7 @@
+<tr>
+	<td><%= order.orderdate %></td>
+	<td> <%= order.status %> </td>
+	<% if signed_in? && current_user.admin? %>
+    	<td><%= link_to "Edit Status", edit_order_path(order) %></td>
+  	<% end %>
+</tr>

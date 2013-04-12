@@ -1,0 +1,15 @@
+<% provide(:title, 'My orders') %>
+<h1>My orders</h1>
+
+<table class="table table-striped" style="font-size:18px">
+	<thead>
+	<tr>
+		<th> Order Date </th>
+		<th> Status </th>
+		<th> &nbsp; </th>
+	</tr>
+	</thead>
+	<tbody>
+  		<%= render @orders %>
+  	</tbody>
+</table>
