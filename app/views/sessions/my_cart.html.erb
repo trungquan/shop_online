@@ -1,3 +1,16 @@
+<head>
+	<script>
+		function myFunction(id){
+			var id_price = "price_"+id.toString();
+			var q = document.getElementById(id).value;
+			var price = document.getElementById(id_price).innerHTML;
+			var sum = document.getElementById("total").innerHTML;
+			q = parseInt(price);
+			
+		}
+	</script>
+</head>
+
 <% provide(:title, 'My cart') %>
 <h1>My cart</h1>
 <% if session[:cart].nil? %>
@@ -20,8 +33,8 @@
 				<tr>
 	 				<td><%= link_to Product.find(k).name, Product.find(k) %></td>
 	 				<td><%= Product.find(k).description %></td>
-	 				<td><%= v %></td>
-	 				<td><%= Product.find(k).price * v %> VND</td>
+	 				<td><input id=<%= k %> min="1" name="session[quantity]" onblur="myFunction(<%= k %>)" type="number" value=<%= v %>></td>
+	 				<td id="price_<%= k %>" ><%= Product.find(k).price %></td>
 	 				<td><%= link_to "Remove from Cart", remove_from_cart_path(k) %></td>
 	 				<% sum += Product.find(k).price * v %>
 	 			</tr>
@@ -29,7 +42,7 @@
 			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td style="font-weight:bold;"> Total: </td>
+				<td id="total" style="font-weight:bold;"> Total: </td>
 				<td><%= sum %> VND</td>
 				<td><%= link_to "Submit My Cart", submit_path, method: :post, class: "btn btn-large btn-success" %></td>
 			</tr>

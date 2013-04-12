@@ -25,10 +25,10 @@ before_filter :signed_in_user, only: [:add_to_cart, :my_cart,
 
   def add_to_cart
     if session[:cart]
-      session[:cart].merge!( { session[:product_id].to_i => params[:session][:quantity].to_i } ) { |key, v1, v2| v1+v2 }
+      session[:cart].merge!( { session[:product_id].to_i => 1 } ) { |key, v1, v2| v1+v2 }
     else
       session[:cart] = Hash.new
-      session[:cart] = { session[:product_id].to_i => params[:session][:quantity].to_i }
+      session[:cart] = { session[:product_id].to_i => 1 }
     end
       redirect_to my_cart_path
   end

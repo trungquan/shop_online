@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 		@product= Product.new(params[:product])
   		if @product.save
   			flash[:success] = "Tao product thanh cong"
-  			redirect_to @product
+  			redirect_to allproducts_path
   		else
   			render 'new'
   		end
