@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :order_id, :product_id, :quantity
+  attr_accessible :product_id, :quantity
 
   belongs_to :order
   belongs_to :product

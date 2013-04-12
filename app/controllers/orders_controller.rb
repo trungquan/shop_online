@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_filter :signed_in_user, only: [:create, :edit, :update, :index]
+	before_filter :signed_in_user, only: [:show, :create, :edit, :update, :index]
 	before_filter :admin_user, only: [:edit, :update]
 
 	def show
@@ -11,10 +11,10 @@ class OrdersController < ApplicationController
 		if @order.save
 			session[:order_id] = @order.id
 			flash[:success] = "Ban da dat hang thanh cong"
-			# redirect_to create_items_path
-			redirect_to orders_path
+			redirect_to create_items_path
+			# redirect_to orders_path
 		else
-			flash[:error] = "Mai ban thao tac lai"
+			flash[:error] = "Da co loi xay ra. Moi ban thao tac lai"
 			redirect_to my_cart_path
 		end	
 	end

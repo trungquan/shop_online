@@ -22,7 +22,8 @@ ShopOnline::Application.routes.draw do
 
   match '/allproducts', to: 'products#index'
   match '/add_to_cart', to: 'sessions#add_to_cart', via: :post
-  match '/remove_from_cart/:product_id', as: "remove_from_cart", to: 'sessions#remove_from_cart', via: :get
+  match '/remove_from_cart/:product_id', as: "remove_from_cart", 
+                            to: 'sessions#remove_from_cart', via: :get
   match '/my_cart', to: 'sessions#my_cart'
   match '/emty_cart', to: 'sessions#emty_cart'
 
